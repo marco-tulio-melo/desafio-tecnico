@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  pgsql:
+    image: postgres:16.1
+    ports:
+      - '127.0.0.1:5432:5432'
+    container_name: 'db-register-cars'
+    restart: always
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: db-register-cars
+      POSTGRES_PASSWORD: db-register-cars
+      POSTGRES_DB: db-register-cars
+volumes:
+  pg-data:
